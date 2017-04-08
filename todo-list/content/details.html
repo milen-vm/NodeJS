@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <script src="/libs/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <%- nav %>
+    <h1>Details</h1>
+    <p>Id: <%= todo.id %></p>
+    <p>Title: <%= todo.title %></p>
+    <p>Description: <%= todo.descr %></p>
+    <p>State: <span id="state"><%= todo.state %></span></p>
+    <p>Image: <img src="/images/<%= todo.image %>" /></p>
+    <a id="rev-state" href="/rev-state" data-id="<%= todo.id %>"><%= revState %></a>
+
+    <% for(var i=0; i < comments.length; i++) {%>
+    <div>
+
+        <p>
+            <span><%= comments[i].date %></span>
+            <br/>
+            <%= comments[i].text %>
+        </p>
+    </div>
+    <% } %>
+
+    <% if (msg) {%>
+    <p style="color: tomato;"><%= msg %></p>
+    <% } %>
+
+    <h3>Add Comment</h3>
+    <form method="post" action="/details/<%= todo.id %>/comment">
+        <textarea name="comment" rows="4" cols="40"></textarea>
+        <br/>
+        <input type="submit" value="Add"/>
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('#rev-state').on('click', function(ev) {
+                ev.preventDefault();
+                let stateBtn = $(this);
+
+                $.ajax({
+                    type: 'POST',
+                    url: stateBtn.attr('href'),
+                    contentType: 'applecation/json; charset=UTF-8',
+                    data: JSON.stringify({id: parseInt(stateBtn.attr('data-id'))}),
+                    dataType: 'json',
+                    success: (result, status, xhr) => {
+                        $('#state').text(result.state)
+                        stateBtn.text(result.revState)
+                    },
+                    error: (xhr, status, error) => {
+
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

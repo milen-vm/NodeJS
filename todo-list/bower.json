@@ -1,0 +1,21 @@
+{
+  "name": "todo-list",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "me"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "content/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

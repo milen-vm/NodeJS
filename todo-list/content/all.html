@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <%- nav %>
+    <ul>
+        <% for (var i=0; i < todos.length; i++) {%>
+        <li>
+            <p>
+                #<%= i + 1 %>
+                <strong>ID</strong> <%= todos[i].id %>,
+                <strong>Title:</strong> <%= todos[i].title %>,
+                <strong>Description:</strong> <%= todos[i].descr %>,
+                <strong>State:</strong> <%= todos[i].state %>
+                <a href="/details/<%= todos[i].id %>" title="More Details">[details]</a>
+            </p>
+        </li>
+        <% } %>
+        <% if (todos.length === 0) {%>
+        <li>No items!</li>
+        <% } %>
+    </ul>
+</body>
+</html>

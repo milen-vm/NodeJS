@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Form</title>
+</head>
+<body>
+    <%- nav %>
+    <form action="/images/upload" method="POST" enctype="multipart/form-data">
+        <span>Image Name</span>
+        <input type="text" name="name" />
+        <span>Image URL</span>
+        <input type="file" name="file" />
+        <input type="submit" name="submit" value="Submit"/>
+    </form>
+</body>
+</html>

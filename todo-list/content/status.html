@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Status</title>
+</head>
+<body>
+    <%- nav %>
+
+    <% if (authorize) {%>
+    <p>All todos count: <%= todosCount %></p>
+    <p>All comments count: <%= commentsCount %></p>
+    <% } else { %>
+    <h1 style="color: tomato;">Unauthorized</h1>
+    <% } %>
+</body>
+</html>

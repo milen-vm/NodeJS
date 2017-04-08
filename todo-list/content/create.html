@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create TODO</title>
+</head>
+<body>
+    <%- nav %>
+
+    <p style="color: tomato;"><%= msg %></p>
+
+    <form method="post" action="/create" enctype="multipart/form-data">
+        <label>Title</label>
+        <br/>
+        <input type="text" name="title"/>
+        <br/>
+        <br/>
+        <label>Description</label>
+        <br/>
+        <textarea name="descr"></textarea>
+        <br/>
+        <br/>
+        <input type="file" name="image"/>
+        <br/>
+        <br/>
+        <label>State</label>
+        <br/>
+        <select name="state">
+            <option value="Pending">Pending</option>
+            <option value="Done">Done</option>
+        </select>
+        <br/>
+        <br/>
+        <input type="submit" value="Save"/>
+    </form>
+</body>
+</html>

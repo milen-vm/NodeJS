@@ -1,45 +1,64 @@
-let mongoose = require('mongoose')
-let connection = 'mongodb://localhost:27017/mongoose'
-let Image = require('./Image')
-let Tag = require('./Tag')
+'use strict'
 
-mongoose.Promise = global.Promise
+let db = require('./db')
 
-let now = new Date()
+let tag = db.saveTag({name: 'Picture5'})
 
-let tag = new Tag({
-  name: 'Photo',
-  creatinDate: now
-})
+// tag.then((item) => {
+//   db.saveImage({
+//     url: 'dir.bg',
+//     description: 'Some text5',
+//     tags: [item]
+//   })
+//   .then((item) => {
+//     console.log(item)
+//   })
+// })
 
-let img = new Image({
-  url: 'abv.bg',
-  creationDate: now,
-  description: 'description',
-  tags: [tag]
-})
+// let mongoose = require('mongoose')
+// let connection = 'mongodb://localhost:27017/mongoose'
+// let Image = require('./Image')
+// let Tag = require('./Tag')
 
-mongoose
-  .connect(connection)
-  .then(() => {
-    'use strict'
-    console.log('MongoDB is up and running!')
+// mongoose.Promise = global.Promise
 
-    tag
-      .save()
-      .catch((err) => {
-        console.log(err)
-      })
-      .then((item) => {
-        console.log(item)
-      })
+// let now = new Date()
+//
+// let tag = new Tag({
+//   name: 'Photo',
+//   creatinDate: now
+// })
 
-    img
-      .save()
-      .catch((err) => {
-        console.log(err)
-      })
-      .then((item) => {
-        console.log(item)
-      })
-  })
+// let img = new Image({
+//   url: 'abv.bg',
+//   creationDate: now,
+//   description: 'description',
+//   tags: [tag]
+// })
+
+// mongoose
+//   .connect(connection)
+//   .then(() => {
+//     console.log('MongoDB is up and running!')
+//
+//     tag
+//       .save()
+//       .catch((err) => {
+//         console.log(err)
+//       })
+//       .then((item) => {
+//         console.log(item)
+//       })
+//
+//     img
+//       .save()
+//       .catch((err) => {
+//         console.log(err)
+//       })
+//       .then((item) => {
+//         console.log(item)
+//       })
+//   })
+//     .catch((err) => {
+//       console.log(err)
+//     })

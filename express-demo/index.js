@@ -5,6 +5,7 @@ let express = require('express')
 let app = express()
 let bodyParser = require('body-parser')
 let path = require('path')
+let Cat = require('./models/Cat')
 
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(bodyParser.urlencoded({extended: true}))
@@ -19,6 +20,10 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.render('index', {myArray: [1, 3, 7, 5], title: 'Заглавие'})
+})
+
+app.get('/cat/create', (req, res) => {
+  res.render('cat/create', { layout: 'layout' })
 })
 
 app.get('/one/:id/two/:num', (req, res) => {

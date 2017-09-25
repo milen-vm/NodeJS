@@ -1,6 +1,6 @@
 'use strict'
 
-const connection = 'mongodb://localhost:27017/mongoose'
+const connection = 'mongodb://localhost:27017/express-demo'
 let mongoose = require('mongoose')
 let dbConnection = mongoose.connect(connection)
 

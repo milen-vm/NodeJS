@@ -10,4 +10,17 @@ html
                     a(href="/") Home
                 li
                     a(href="/about") About
-                block main-content
+                if (currentUser)
+                    li
+                        span=currentUser.firstName
+                    li
+                        form#logout-form(method="post" action="/users/logout" style="display:inline-block")
+                            a(href="javascript:document.getElementById('logout-form').submit();") Logout
+                else
+                    li
+                        a(href="/users/register") Register
+                    li
+                        a(href="/users/login") Login
+            if (globalError)
+                div=globalError
+            block main-content

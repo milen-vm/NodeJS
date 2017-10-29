@@ -14,7 +14,7 @@ let userSchema = mongoose.Schema({
 })
 
 userSchema.method({
-  authenticate: (password) => {
+  authenticate: function (password) {
     return encription.generateHashedPassword(this.salt, password) === this.hashedPass
   }
 })

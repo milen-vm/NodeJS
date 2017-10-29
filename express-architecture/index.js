@@ -7,8 +7,9 @@ let config = require('./server/confing/config')[env]
 require('./server/confing/database')(config)
 require('./server/confing/express')(config, app)
 require('./server/confing/routes')(app)
+require('./server/confing/passport')()
 
-console.log(process.env.NODE_ENV)
+// console.log(process.env.NODE_ENV)
 
 app.listen(config.port)
 console.log('Express is ready on port: ' + config.port)

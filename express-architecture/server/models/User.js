@@ -36,5 +36,7 @@ module.exports.seedAdminUser = () => {
         roles: ['Admin']
       })
     }
+  }, (err) => {
+    console.log(err)
   })
 }
